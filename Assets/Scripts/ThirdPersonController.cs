@@ -396,7 +396,7 @@ namespace StarterAssets
 
         private void Attack() 
         {
-            _playerIn
+            _
                    
         }
     }
