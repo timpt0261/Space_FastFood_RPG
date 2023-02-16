@@ -12,9 +12,6 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
-		public bool interact;
-		public bool attack;
-		public bool inventory;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -44,13 +41,10 @@ namespace StarterAssets
 
 		public void OnSprint(InputValue value)
 		{
-			Debug.Log(value.isPressed);
 			SprintInput(value.isPressed);
 		}
 
 #endif
-
-
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
@@ -79,37 +73,6 @@ namespace StarterAssets
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
-		}
-
-		public void OnAttack(InputValue value)
-		{
-			AttackInput(value.isPressed);
-		}
-
-		public void OnInteract(InputValue value)
-		{
-			Debug.Log("On interact " +value.isPressed);
-			InteractInput(value.isPressed);
-		}
-
-		public void OnInventory(InputValue value)
-		{
-			InventoryInput(value.isPressed);
-		}
-
-		public void AttackInput(bool newAttackState)
-		{
-			attack = newAttackState;
-		}
-
-		public void InteractInput(bool newInteractState)
-		{
-			interact = newInteractState;
-		}
-
-		public void InventoryInput(bool newInventoryState)
-		{
-			inventory = newInventoryState;
 		}
 	}
 	

@@ -165,11 +165,6 @@ namespace StarterAssets
             Move();
         }
 
-        private void FixedUpdate()
-        {
-            Interact();
-        }
-
         private void LateUpdate()
         {
             CameraRotation();
@@ -396,11 +391,6 @@ namespace StarterAssets
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
-        }
-
-        private void Interact() 
-        {
-           
         }
     }
 }
