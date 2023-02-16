@@ -53,7 +53,7 @@
                 {
                     "name": "Attack",
                     "type": "Button",
-                    "id": "49a5b812-d7b5-4614-91c6-80a60a92847e",
+                    "id": "ca28826c-6edf-458b-86fb-faa7291cc9f9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -62,7 +62,7 @@
                 {
                     "name": "Inventory",
                     "type": "Button",
-                    "id": "e64652f1-7d12-42e6-918b-915e2f22bb1c",
+                    "id": "cdff6c48-7a68-4e28-9206-9bfcc0760e38",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -270,19 +270,19 @@
                 },
                 {
                     "name": "",
-                    "id": "d78d55f3-48e0-464c-adb0-d5768bebcbc8",
+                    "id": "abc214e5-baa6-40dd-8965-eba7dcc03293",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KeyboardMouse",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "3cf0cb94-360f-431d-b5da-f8bcfec9b744",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "e9b114a7-4371-4e17-bbf3-55f2fbb4b68b",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -292,8 +292,8 @@
                 },
                 {
                     "name": "",
-                    "id": "2fede3e2-fcfd-4746-b88b-54e8f0c62d3a",
-                    "path": "<Keyboard>/#(I)",
+                    "id": "232bd64a-8190-4df8-8f68-d3cb4c11211e",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -303,8 +303,8 @@
                 },
                 {
                     "name": "",
-                    "id": "3786a5c5-3186-428c-ac10-0d103b1ceba6",
-                    "path": "<Gamepad>/buttonWest",
+                    "id": "64653baa-ef0c-4c7d-8a03-a317a3a42301",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
