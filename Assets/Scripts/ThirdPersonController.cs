@@ -105,9 +105,8 @@ namespace StarterAssets
 #endif
         private Animator _animator;
         private CharacterController _controller;
-        private AssetsInputs _input;
+        private StarterAssetsInputs _input;
         private GameObject _mainCamera;
-
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
@@ -132,6 +131,7 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
         }
 
         private void Start()
@@ -141,6 +141,8 @@ namespace StarterAssets
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
+            
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
             _playerInput = GetComponent<PlayerInput>();
 #else
@@ -161,7 +163,11 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+        }
 
+        private void FixedUpdate()
+        {
+            Interact();
         }
 
         private void LateUpdate()
@@ -390,6 +396,11 @@ namespace StarterAssets
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
+        }
+
+        private void Interact() 
+        {
+           
         }
     }
 }

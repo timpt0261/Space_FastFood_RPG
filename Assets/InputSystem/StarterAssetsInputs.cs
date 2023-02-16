@@ -13,6 +13,8 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool interact;
+		public bool attack;
+		public bool inventory;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -46,11 +48,6 @@ namespace StarterAssets
 			SprintInput(value.isPressed);
 		}
 
-		public void OnInteract(InputValue value)
-		{
-			Debug.Log(value.isPressed);
-			InteractInput(value.isPressed);		
-		}
 #endif
 
 
@@ -72,12 +69,7 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
-		}
-
-		public void InteractInput(bool newInteractState)
-		{
-			interact = newInteractState;
-		}
+		}		
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
@@ -87,6 +79,37 @@ namespace StarterAssets
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+		}
+
+		public void OnAttack(InputValue value)
+		{
+			AttackInput(value.isPressed);
+		}
+
+		public void OnInteract(InputValue value)
+		{
+			Debug.Log("On interact " +value.isPressed);
+			InteractInput(value.isPressed);
+		}
+
+		public void OnInventory(InputValue value)
+		{
+			InventoryInput(value.isPressed);
+		}
+
+		public void AttackInput(bool newAttackState)
+		{
+			attack = newAttackState;
+		}
+
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState;
+		}
+
+		public void InventoryInput(bool newInventoryState)
+		{
+			inventory = newInventoryState;
 		}
 	}
 	
