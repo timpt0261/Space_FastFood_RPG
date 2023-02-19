@@ -6,6 +6,9 @@ public class Chest : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
+
+    [SerializeField]
+    private string keyname = "GeneralKey";
     public bool Interact(Interactor interactor)
     {
         Debug.Log("Opening Chest");
