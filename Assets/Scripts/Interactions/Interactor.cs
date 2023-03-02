@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Interactor : MonoBehaviour
 {
+    private InputActions actions;
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactableMask;
@@ -16,6 +17,8 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numfound;
 
     private IInteractable _interactable;
+
+    /*
     private void Update()
     {
         _numfound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius,_colliders, _interactableMask);
@@ -39,6 +42,16 @@ public class Interactor : MonoBehaviour
         }
 
 
+    }
+    */
+    void Awake()
+    {
+        actions.actions["Interact"].onPressed += OnInteract;
+    }
+
+    void OnInteract()
+    {
+        Debug.Log("Interacting");
     }
 
     private void OnDrawGizmos()
