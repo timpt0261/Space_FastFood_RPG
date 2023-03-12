@@ -8,7 +8,7 @@ public class Stat{
     [SerializeField]
     private int baseValue;
     
-    // basic armor script
+    // list of mods from armor, items, skills, etc.
     private List<int> modifiers = new List<int>();
 
     public int GetValue()
