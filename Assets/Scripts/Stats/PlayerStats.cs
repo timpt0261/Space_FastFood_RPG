@@ -10,6 +10,7 @@ public class PlayerStats : CharacterStats
         //when equipment or item is changed, change stats TODO
     }
 
+    /*
     // temp Equipment used since I don't know if we have an equipment script yet
     void onEquipmentChange (Equipment newItem, Equipment oldItem)
     {
@@ -29,4 +30,5 @@ public class PlayerStats : CharacterStats
             speed.removeModifier(newItem.speedModifier);
         }
     }
+    */
 }
