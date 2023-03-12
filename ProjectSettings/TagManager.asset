@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
-  - Enemy
-  - Item
   - Character
+  - Basic_Enemy
+  - Interactable_Items
+  - Boss_Enenmy
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Interactable
-  - 
+  - Enemy
   - Character
   - Ground
   - 
