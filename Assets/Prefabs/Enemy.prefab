@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1666757363774271662}
   - component: {fileID: 171882899585141662}
+  - component: {fileID: 3155630239542731736}
+  - component: {fileID: 3867029108625233014}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -47,6 +49,42 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6438891
   m_Center: {x: 0.017908454, y: -0.06543392, z: 0}
+--- !u!195 &3155630239542731736
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196654444841290175}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.74
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.39
+  m_BaseOffset: 0.73
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &3867029108625233014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196654444841290175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434c556497d20574baa392f2e5ebf379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPostion: {fileID: 0}
+  endPostion: {fileID: 0}
 --- !u!1001 &4344914083697225653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -217,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 2639601646732630809, guid: 7d297ce6a487c0247b5edccce4ece3c6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.864
+      value: -0.62
       objectReference: {fileID: 0}
     - target: {fileID: 2639601646732630809, guid: 7d297ce6a487c0247b5edccce4ece3c6,
         type: 3}

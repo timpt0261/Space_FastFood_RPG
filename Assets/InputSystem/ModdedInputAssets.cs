@@ -271,7 +271,7 @@ public partial class @ModdedInputAssets: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""16287e5d-2fe9-4c13-b0d2-9f9829a47939"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
