@@ -52,7 +52,7 @@ public class EnemyNavMesh : MonoBehaviour
 
 
                 // If the enemy has reached its current destination, set a new destination
-                if (!navAgent.pathPending && na.remainingDistance < 0.5f)
+                if (!navAgent.pathPending && navAgent.remainingDistance < 0.5f)
                 {
                     // If the enemy is moving forward, increment the current waypoint index, otherwise decrement it
                     if (isMovingForward)
