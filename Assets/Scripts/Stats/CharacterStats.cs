@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public int maxHealth = 100; // dummy value
-    public int currentHealth { get; private set; }
-    public int maxMana = 100; // dummy value
-    public int currentMana { get; private set; }
+    [SerializeField] private int maxHealth = 100; // dummy value
+    [SerializeField] private int currentHealth { get; set; }
+    [SerializeField] private int maxMana = 100; // dummy value
+    [SerializeField] private int currentMana { get; set; }
 
-    public Stat damage;
-    public Stat armor;
-    public Stat magicResist;
-    public Stat speed;
+    [SerializeField] private Stat damage;
+    [SerializeField] private Stat armor;
+    [SerializeField] private Stat magicResist;
+    [SerializeField] private Stat speed;
 
     void Start()
     {
