@@ -85,6 +85,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   _player: {fileID: 0}
+  num_postions: 4
+  total_dist: 20
+  pathType: 0
+  oneWay: 1
+  enemyType: 1
+  _intractionRadius: 1
 --- !u!1001 &4344914083697225653
 PrefabInstance:
   m_ObjectHideFlags: 0
