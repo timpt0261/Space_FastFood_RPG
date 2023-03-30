@@ -32,7 +32,7 @@ public class Interactor : MonoBehaviour
     }
     private void Update()
     {
-        _numfound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius,_colliders, _interactableMask);
+        _numfound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius,_colliders, _interactableMask | _enemyMask);
 
         if (_numfound > 0)
         {

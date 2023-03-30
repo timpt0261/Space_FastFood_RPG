@@ -126,12 +126,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 40c61ca6176efb2409367f57582559af, type: 2}
---- !u!4 &205826924 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7150285171775677423, guid: bdd31686ce8475a40a3676018bb5484d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1838676553}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &242903717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,12 +1794,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionPoint: {fileID: 2051010136}
   _interactionPointRadius: 0.25
-  _interactableMask:
+  _interactionMask:
     serializedVersion: 2
     m_Bits: 64
   _enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _interaction_Ui: {fileID: 242903722}
   _numfound: 0
 --- !u!4 &1832727918 stripped
@@ -1922,17 +1916,27 @@ PrefabInstance:
         type: 3}
       propertyPath: endPostion
       value: 
-      objectReference: {fileID: 1838676554}
+      objectReference: {fileID: 0}
     - target: {fileID: 3867029108625233014, guid: bdd31686ce8475a40a3676018bb5484d,
         type: 3}
       propertyPath: startPostion
       value: 
-      objectReference: {fileID: 205826924}
+      objectReference: {fileID: 0}
     - target: {fileID: 5660665277664131085, guid: bdd31686ce8475a40a3676018bb5484d,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6915179692936104561, guid: bdd31686ce8475a40a3676018bb5484d,
+        type: 3}
+      propertyPath: radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915179692936104561, guid: bdd31686ce8475a40a3676018bb5484d,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1832727910}
     - target: {fileID: 7150285171775677423, guid: bdd31686ce8475a40a3676018bb5484d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1940,12 +1944,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdd31686ce8475a40a3676018bb5484d, type: 3}
---- !u!4 &1838676554 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5660665277664131085, guid: bdd31686ce8475a40a3676018bb5484d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1838676553}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1896587734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8187455079231382173, guid: 64dce48905ffd9b4293e595fa6941544,
