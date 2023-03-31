@@ -34,8 +34,8 @@ public class EnemyNavMesh : MonoBehaviour
     [Header("Enemy Detection")]
     [SerializeField]
     private Type enemyType = Type.LAND;
-    [SerializeField]
-    private float _intractionRadius = 1.0f;
+    
+    
 
     // States for the state machine
     enum State {IDLE, PATROL, CHASE, ATTACK}
@@ -126,27 +126,25 @@ public class EnemyNavMesh : MonoBehaviour
     // Ennemy AI is in idle state
     void Idle() 
     {
+        // Stays in Place
         
     }
 
     void Patrol() 
     { 
+        // Walks in specific path
     
     }
 
     void Chase() 
     {
+        // Chases playe if in feild in view
         
     }
     void Attack() 
     { 
+        // Attacks player
     
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(this.transform.position ,1.0f);
     }
 
 }
