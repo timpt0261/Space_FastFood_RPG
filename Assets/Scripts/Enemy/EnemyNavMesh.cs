@@ -8,7 +8,7 @@ public class EnemyNavMesh : MonoBehaviour
     private NavMeshAgent navAgent;  // Reference to NavMeshAgent component
     private bool isMovingForward = true;
     private CreatePath createPath;
-    private enum Type {GROUND,LAND, AERIAL,MARINE}
+    private enum Type { GROUND, LAND, AERIAL, MARINE }
 
     [SerializeField]
     private GameObject _player;
@@ -32,14 +32,22 @@ public class EnemyNavMesh : MonoBehaviour
     private bool oneWay = true;
 
     [Header("Enemy Detection")]
+
+    [SerializeField]
+    private float radius = 10.0f;
+
+    [SerializeField]
+    private float angle = 10.0f;
+
     [SerializeField]
     private Type enemyType = Type.LAND;
-    
-    
+
+
+    private bool player_Detected = false;    
 
     // States for the state machine
     enum State {IDLE, PATROL, CHASE, ATTACK}
-    private State currentState = State.IDLE;  // Initial state
+    private State currentState = State.PATROL;  // Initial state
 
     void Start()
     {
@@ -116,6 +124,8 @@ public class EnemyNavMesh : MonoBehaviour
                 break;
         }
     }
+
+
     void SetDestination()
     {
         // Set the enemy's destination to the current waypoint
