@@ -8,7 +8,7 @@ public class FeildOfView : MonoBehaviour
     // Ref: https://youtu.be/rQG9aUWarwE
 
     [SerializeField]
-    private float viewRadius;
+    private float viewRadius = 1.0f;
     [Range(0,360)]
     [SerializeField]
     private float viewAngle;

@@ -27,6 +27,9 @@ public class EnemyNavMesh : MonoBehaviour
     [SerializeField]
     private PathType pathType = PathType.NGon;
 
+    [SerializeField]
+    private Transform[] custom;
+
     [Tooltip("Should AI walk back and forths")]
     [SerializeField]
     private bool oneWay = true;
@@ -66,7 +69,9 @@ public class EnemyNavMesh : MonoBehaviour
         {
             case State.IDLE:
                 //Wait for span of 5 secs to then move then postion to next way point
-                // In the During it's idle period that the enemy is close switch to chase  
+                // In the During it's idle period that the enemy is close switch to chase
+
+                float startTime = Time.deltaTime;
                 break;
             case State.PATROL:
                 // Move to next waypoint if enemy has reached current waypoint
@@ -121,12 +126,14 @@ public class EnemyNavMesh : MonoBehaviour
 
             case State.ATTACK:
                 // TODO: Implement attack behavior
+
+
                 break;
         }
     }
 
 
-    void SetDestination()
+    private void SetDestination()
     {
         // Set the enemy's destination to the current waypoint
         navAgent.SetDestination(waypoints[currentWaypoint].position);
@@ -134,24 +141,33 @@ public class EnemyNavMesh : MonoBehaviour
 
 
     // Ennemy AI is in idle state
-    void Idle() 
+    private void Idle() 
     {
         // Stays in Place
         
     }
 
-    void Patrol() 
-    { 
+     private void Patrol() 
+    {
         // Walks in specific path
+        if (oneWay) 
+        {
+
+            
+        }
     
     }
 
-    void Chase() 
+    private void Flee() { 
+    
+    }
+
+     private void Chase() 
     {
         // Chases playe if in feild in view
         
     }
-    void Attack() 
+    private void Attack() 
     { 
         // Attacks player
     
