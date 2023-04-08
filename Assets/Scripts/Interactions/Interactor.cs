@@ -9,7 +9,6 @@ public class Interactor : MonoBehaviour
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactableMask;
-    [SerializeField] private LayerMask _enemyMask;
     [SerializeField] private Interaction_Ui _interaction_Ui;
 
     private bool interact;

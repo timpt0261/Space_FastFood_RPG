@@ -11,6 +11,14 @@ public class Chest : MonoBehaviour, IInteractable
     private string keyname = "GeneralKey";
     public bool Interact(Interactor interactor)
     {
+        var inventory = interactor.GetComponent<Inventory>();
+
+        if (inventory == null) return false;
+
+        if (inventory.HasItem(keyname))
+        {
+              Debug.Log("Opening Chest");
+        }
         Debug.Log("Opening Chest");
         return true;
     }

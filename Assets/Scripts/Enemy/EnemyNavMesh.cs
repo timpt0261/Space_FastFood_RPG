@@ -8,18 +8,48 @@ public class EnemyNavMesh : MonoBehaviour
     private NavMeshAgent navAgent;  // Reference to NavMeshAgent component
     private bool isMovingForward = true;
     private CreatePath createPath;
+    private enum Type { GROUND, LAND, AERIAL, MARINE }
 
     [SerializeField]
     private GameObject _player;
 
+    [Header("AI Path")]
+
+    [Tooltip("Number of postion the AI should have")]
+    [SerializeField]
+    private int num_postions = 4;
+
+    [Tooltip("Total Distance the AI should walk ")]
+    [SerializeField]
+    private float total_dist = 20.0f;
+
+    [Tooltip("Shape of Pathway")]
+    [SerializeField]
+    private PathType pathType = PathType.NGon;
+
+    [SerializeField]
+    private Transform[] custom;
+
+    [Tooltip("Should AI walk back and forths")]
+    [SerializeField]
+    private bool oneWay = true;
+
+    [Header("Enemy Detection")]
+
+    [SerializeField]
+    private float radius = 10.0f;
+
+    [SerializeField]
+    private float angle = 10.0f;
+
+    [SerializeField]
+    private Type enemyType = Type.LAND;
+
+
+    private bool player_Detected = false;    
 
     // States for the state machine
-    enum State
-    {
-        PATROL,
-        CHASE,
-        ATTACK
-    }
+    enum State {IDLE, PATROL, CHASE, ATTACK}
     private State currentState = State.PATROL;  // Initial state
 
     void Start()
@@ -27,7 +57,7 @@ public class EnemyNavMesh : MonoBehaviour
         createPath = GetComponent<CreatePath>();
         navAgent = GetComponent<NavMeshAgent>();  // Get NavMeshAgent component reference
 
-        waypoints = createPath.Construct(4, 20.0f, PathType.NGon,navAgent.transform);
+        waypoints = createPath.Construct(num_postions, total_dist, pathType,navAgent.transform);
         SetDestination();
 
         _player = GetComponent<GameObject>();
@@ -37,6 +67,12 @@ public class EnemyNavMesh : MonoBehaviour
     {
         switch (currentState)
         {
+            case State.IDLE:
+                //Wait for span of 5 secs to then move then postion to next way point
+                // In the During it's idle period that the enemy is close switch to chase
+
+                float startTime = Time.deltaTime;
+                break;
             case State.PATROL:
                 // Move to next waypoint if enemy has reached current waypoint
                 if (navAgent.remainingDistance <= navAgent.stoppingDistance)
@@ -90,19 +126,51 @@ public class EnemyNavMesh : MonoBehaviour
 
             case State.ATTACK:
                 // TODO: Implement attack behavior
+
+
                 break;
         }
     }
-    void SetDestination()
+
+
+    private void SetDestination()
     {
         // Set the enemy's destination to the current waypoint
         navAgent.SetDestination(waypoints[currentWaypoint].position);
     }
 
-    private void OnDrawGizmos()
+
+    // Ennemy AI is in idle state
+    private void Idle() 
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(this.transform.position ,10.0f);
+        // Stays in Place
+        
+    }
+
+     private void Patrol() 
+    {
+        // Walks in specific path
+        if (oneWay) 
+        {
+
+            
+        }
+    
+    }
+
+    private void Flee() { 
+    
+    }
+
+     private void Chase() 
+    {
+        // Chases playe if in feild in view
+        
+    }
+    private void Attack() 
+    { 
+        // Attacks player
+    
     }
 
 }
