@@ -5,35 +5,90 @@ using UnityEditor;
 
 public class CustomPath : MonoBehaviour
 {
+    [SerializeField]
+    private Transform[] points;
+    
+    [SerializeField]
+    [Range(4, 20)]
+    private int numPoints = 4;
 
     [SerializeField]
-    [Range(0, 20)]
-    private int numWaypoints = 5;
+    private int totalDistance = 10;
 
-    [SerializeField]
-    private float totalDistance = 10.0f;
+    private List<Vector3> path = new List<Vector3>();
+    private int numSides = 4; // Start with a square
 
-    [SerializeField]
-    private Transform[] _customPath = new Transform[20];
-
-    private void Awake()
+    void Start()
     {
-        
-        for (int i = 0; i < numWaypoints; i++) 
+        CreatePath();
+    }
+
+    void CreatePath()
+    {
+        int prevNumSides = numSides;
+        numSides = Mathf.Clamp(numSides, 4, numPoints);
+
+        if (numSides != prevNumSides)
         {
-            
+            path.Clear();
+
+            // Calculate the positions of the points to form a regular n-gon
+            for (int i = 0; i < numSides; i++)
+            {
+                float angle = i * Mathf.PI * 2f / numSides;
+                Vector3 position = points[i % numPoints].position;
+                position.x += totalDistance * Mathf.Cos(angle);
+                position.z += totalDistance * Mathf.Sin(angle);
+                path.Add(position);
+            }
+
+            // Smooth out the path
+            for (int i = 0; i < path.Count; i++)
+            {
+                Vector3 nextPoint = path[(i + 1) % path.Count];
+                Vector3 prevPoint = path[(i - 1 + path.Count) % path.Count];
+                Vector3 tangent = (nextPoint - prevPoint).normalized;
+                Vector3 normal = Vector3.Cross(tangent, Vector3.up);
+                path[i] -= normal * (totalDistance / numSides) / 2f;
+            }
+
+            // Align the first position to the current position
+            Vector3 offset = transform.position - path[0];
+            for (int i = 0; i < path.Count; i++)
+            {
+                path[i] += offset;
+            }
+
+            for (int i = 0; i < numPoints; i++) 
+            {
+                points[i].position = path[i];
+            }
         }
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
-        Handles.color = Color.magenta;
-        Handles.DrawDottedLine(_customPath[numWaypoints].localPosition, _customPath[0].localPosition, 5f);
-        for (int i = 0; i < numWaypoints-1; i++) 
+        CreatePath();
+        Gizmos.color = Color.white;
+        for (int i = 0; i < path.Count; i++)
         {
-            var _pastPostion = _customPath[(i-1) % _customPath.Length];
-            Handles.DrawDottedLine(_customPath[i].localPosition, _pastPostion.localPosition, 5f);
+            if (i == 0)
+            {
+                Gizmos.DrawLine(path[path.Count - 1], path[i]);
+            }
+            else
+            {
+                Gizmos.DrawLine(path[i - 1], path[i]);
+            }
         }
-        
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            numSides++;
+        }
+    }
+
 }
