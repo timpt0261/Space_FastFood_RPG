@@ -8,6 +8,7 @@ public class EnemyNavMesh : MonoBehaviour
     private NavMeshAgent navAgent;  // Reference to NavMeshAgent component
     private bool isMovingForward = true;
     private CreatePath createPath;
+    private CustomPath customPath;
     private enum Type { GROUND, LAND, AERIAL, MARINE }
 
     [SerializeField]
@@ -28,7 +29,7 @@ public class EnemyNavMesh : MonoBehaviour
     private PathType pathType = PathType.NGon;
 
     [SerializeField]
-    private Transform[] custom;
+    bool custom;
 
     [Tooltip("Should AI walk back and forths")]
     [SerializeField]

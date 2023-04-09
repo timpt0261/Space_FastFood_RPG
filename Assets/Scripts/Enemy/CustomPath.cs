@@ -72,14 +72,15 @@ public class CustomPath : MonoBehaviour
         Gizmos.color = Color.white;
         for (int i = 0; i < path.Count; i++)
         {
-            if (i == 0)
+            Gizmos.DrawLine(path[(i-1) % path.Count],path[i % path.Count]);
+            /*if (i == 0)
             {
                 Gizmos.DrawLine(path[path.Count - 1], path[i]);
             }
             else
             {
                 Gizmos.DrawLine(path[i - 1], path[i]);
-            }
+            }*/
         }
     }
 
