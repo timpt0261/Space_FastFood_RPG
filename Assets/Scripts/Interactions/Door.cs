@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
 {
+    [TextArea(minLines: 0, maxLines: 1)]
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
 
     // To be able to distinguish keys
+    [TextArea(minLines: 0, maxLines: 1)]
     [SerializeField]
     private string keyname = "GeneralKey";
     public bool Interact(Interactor interactor)
