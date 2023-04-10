@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Used Chatgpt 
 public enum PathType { NGon, Linear, Custom }
 
 public class CreatePath : MonoBehaviour
-{
+{ 
     public Transform[] Construct(int numWaypoints = 5, float totalDistance = 10.0f, PathType pathType = PathType.Linear, Transform startTransform = null, Vector3[] customPathPoints = null) 
     {
         Transform[] waypoints = new Transform[numWaypoints];

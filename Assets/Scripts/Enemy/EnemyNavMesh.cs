@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class EnemyNavMesh : MonoBehaviour
 {
-    [SerializeField] private Transform[] waypoints;  // List of waypoints to follow
+    private Transform[] waypoints;  // List of waypoints to follow
     private int currentWaypoint = 0;  // Current waypoint index
     private NavMeshAgent navAgent;  // Reference to NavMeshAgent component
     private bool isMovingForward = true;
@@ -27,8 +28,9 @@ public class EnemyNavMesh : MonoBehaviour
     [SerializeField]
     private PathType pathType = PathType.NGon;
 
-    [SerializeField]
-    private Transform[] custom;
+
+    [Tooltip("Implement Custom Path")]
+    public Vector3[] customPath = null;
 
     [Tooltip("Should AI walk back and forths")]
     [SerializeField]
@@ -42,6 +44,7 @@ public class EnemyNavMesh : MonoBehaviour
     [SerializeField]
     private float angle = 10.0f;
 
+    
     [SerializeField]
     private Type enemyType = Type.LAND;
 
@@ -49,15 +52,18 @@ public class EnemyNavMesh : MonoBehaviour
     private bool player_Detected = false;    
 
     // States for the state machine
-    enum State {IDLE, PATROL, CHASE, ATTACK}
-    private State currentState = State.PATROL;  // Initial state
+    private enum State {IDLE, PATROL, CHASE, ATTACK}
+    private State currentState = State.IDLE;  // Initial state
 
     void Start()
     {
         createPath = GetComponent<CreatePath>();
         navAgent = GetComponent<NavMeshAgent>();  // Get NavMeshAgent component reference
 
-        waypoints = createPath.Construct(num_postions, total_dist, pathType,navAgent.transform);
+        // Use Custom Path if not null
+        waypoints = customPath.Length > 0 ? createPath.Construct(num_postions, total_dist, pathType, navAgent.transform, customPath):
+                                                createPath.Construct(num_postions, total_dist, pathType, navAgent.transform);
+
         SetDestination();
 
         _player = GetComponent<GameObject>();
@@ -74,7 +80,7 @@ public class EnemyNavMesh : MonoBehaviour
                 float startTime = Time.deltaTime;
                 break;
             case State.PATROL:
-                // Move to next waypoint if enemy has reached current waypoint
+               /* // Move to next waypoint if enemy has reached current waypoint
                 if (navAgent.remainingDistance <= navAgent.stoppingDistance)
                 {
                     currentWaypoint++;
@@ -108,10 +114,11 @@ public class EnemyNavMesh : MonoBehaviour
                 {
                     currentState = State.CHASE;
                 }
+               */
                 break;
 
             case State.CHASE:
-                navAgent.SetDestination(_player.transform.position);
+                /*navAgent.SetDestination(_player.transform.position);
                 // Transition to ATTACK state if player is within a certain distance
                 if (Vector3.Distance(transform.position, _player.transform.position) < 2f)
                 {
@@ -121,7 +128,7 @@ public class EnemyNavMesh : MonoBehaviour
                 if (Vector3.Distance(transform.position, _player.transform.position) > 20f)
                 {
                     currentState = State.PATROL;
-                }
+                }*/
                 break;
 
             case State.ATTACK:
@@ -150,15 +157,13 @@ public class EnemyNavMesh : MonoBehaviour
      private void Patrol() 
     {
         // Walks in specific path
-        if (oneWay) 
-        {
-
-            
-        }
+        if()
     
     }
 
-    private void Flee() { 
+    private void Flee() 
+    { 
+        // Depending on type it will run away from player
     
     }
 

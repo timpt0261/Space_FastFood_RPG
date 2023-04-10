@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IInteractable
 {
+    [TextArea(minLines: 0, maxLines: 1)]
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
 

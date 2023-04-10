@@ -72,5 +72,11 @@ public class FeildOfView : MonoBehaviour
 
         Handles.DrawLine(this.transform.position, transform.position + viewA * viewRadius);
         Handles.DrawLine(this.transform.position, transform.position + viewB * viewRadius);
+
+        Handles.color = Color.red;
+        foreach (var target in visibleTarget) 
+        {
+            Handles.DrawLine(this.transform.position, target.position);
+        }
     }
 }
