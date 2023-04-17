@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: StarterAssets (Input Actions)
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -39,9 +39,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1104
+    x: 959
     y: 0
-    width: 458
+    width: 603
     height: 599
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 85
+  controlID: 116
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 116
+  controlID: 71
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 69
+  controlID: 72
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,23 +338,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: InputActionEditorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 189
     y: 0
-    width: 915
+    width: 770
     height: 599
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 22}
+  m_MinSize: {x: 602, y: 321}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 22}
   - {fileID: 18}
   - {fileID: 17}
-  m_Selected: 0
+  m_Selected: 2
   m_LastSelected: 0
 --- !u!114 &15
 MonoBehaviour:
@@ -419,7 +419,7 @@ MonoBehaviour:
     m_CachedPref: 0
     m_ControlHash: 0
     m_PrefName: 
-  m_LastInspectedObjectInstanceID: 43954
+  m_LastInspectedObjectInstanceID: 32198
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -449,38 +449,38 @@ MonoBehaviour:
     serializedVersion: 2
     x: 189
     y: 73
-    width: 1371
-    height: 601
+    width: 768
+    height: 578
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_ActionMapsTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 17c1459c
-    m_LastClickedID: -1673150185
+    m_SelectedIDs: 5801614d
+    m_LastClickedID: 1298202968
     m_ExpandedIDs: 00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Menu
+      m_OriginalName: New action map
       m_EditFieldRect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
+        x: 23
+        y: 18
+        width: 160
+        height: 16
+      m_UserData: 1298202968
       m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_IsRenaming: 1
+      m_OriginalEventType: 5
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 14}
     m_SearchString: 
   m_ActionsTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: bebdc5ab
-    m_LastClickedID: -1413104194
+    m_SelectedIDs: ecc24a87
+    m_LastClickedID: -2025143572
     m_ExpandedIDs: 0520a180b091519617c1459cbebdc5ab1c0b90d18bf641f672664247
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -679,9 +679,21 @@ MonoBehaviour:
       \"\",\n                    \"processors\": \"\",\n                    \"groups\":
       \"Gamepad\",\n                    \"action\": \"Inventory\",\n                   
       \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      }\n            ]\n        }\n    ],\n    \"controlSchemes\": [\n        {\n           
-      \"name\": \"KeyboardMouse\",\n            \"bindingGroup\": \"KeyboardMouse\",\n           
-      \"devices\": [\n                {\n                    \"devicePath\": \"<Keyboard>\",\n                   
+      }\n            ]\n        },\n        {\n            \"name\": \"New action
+      map\",\n            \"id\": \"0ffd057c-d6a5-4b99-8331-c82102e3cd28\",\n           
+      \"actions\": [\n                {\n                    \"name\": \"New action\",\n                   
+      \"type\": \"Button\",\n                    \"id\": \"5d351aa5-629f-45a5-bc56-7eb56aeca42a\",\n                   
+      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
+      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
+      }\n            ],\n            \"bindings\": [\n                {\n                   
+      \"name\": \"\",\n                    \"id\": \"cbadeef6-4afc-4f30-88dc-9674ca25ea7b\",\n                   
+      \"path\": \"\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"New action\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": false\n                }\n            ]\n        }\n   
+      ],\n    \"controlSchemes\": [\n        {\n            \"name\": \"KeyboardMouse\",\n           
+      \"bindingGroup\": \"KeyboardMouse\",\n            \"devices\": [\n               
+      {\n                    \"devicePath\": \"<Keyboard>\",\n                   
       \"isOptional\": false,\n                    \"isOR\": false\n               
       },\n                {\n                    \"devicePath\": \"<Mouse>\",\n                   
       \"isOptional\": false,\n                    \"isOR\": false\n               
@@ -843,22 +855,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Managers
+    - Assets/Scripts/Combat
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Managers
+  - Assets/Scripts/Combat
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\rchav\Dropbox\PC\Documents\Unity Projects\Space_FastFood_RPG\Space_FastFood_RPG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 28}
-    m_SelectedIDs: aaab0000
-    m_LastClickedID: 43946
-    m_ExpandedIDs: 00000000a4830000a6830000
+    m_SelectedIDs: d2830000
+    m_LastClickedID: 33746
+    m_ExpandedIDs: 00000000b4830000b6830000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -886,7 +898,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a4830000a6830000
+    m_ExpandedIDs: 00000000b4830000b6830000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -978,7 +990,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 162
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1016,9 +1028,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 74c4fffff2faffff
+      m_SelectedIDs: c67d0000
+      m_LastClickedID: 32198
+      m_ExpandedIDs: fafafffff67c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1034,7 +1046,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 7}
+        m_ClientGUIView: {fileID: 2}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1065,7 +1077,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 189
     y: 73
-    width: 913
+    width: 768
     height: 578
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1380,9 +1392,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1104
+    x: 959
     y: 73
-    width: 456
+    width: 601
     height: 578
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1394,7 +1406,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 456, y: 557}
+  m_TargetSize: {x: 601, y: 557}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1409,8 +1421,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -228
-    m_HBaseRangeMax: 228
+    m_HBaseRangeMin: -300.5
+    m_HBaseRangeMax: 300.5
     m_VBaseRangeMin: -278.5
     m_VBaseRangeMax: 278.5
     m_HAllowExceedBaseRangeMin: 1
@@ -1430,23 +1442,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 456
+      width: 601
       height: 557
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 228, y: 278.5}
+    m_Translation: {x: 300.5, y: 278.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -228
+      x: -300.5
       y: -278.5
-      width: 456
+      width: 601
       height: 557
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 456, y: 578}
+  m_LastWindowPixelSize: {x: 601, y: 578}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000

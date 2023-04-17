@@ -335,6 +335,34 @@ public partial class @ModdedInputAssets: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""New action map"",
+            ""id"": ""0ffd057c-d6a5-4b99-8331-c82102e3cd28"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""5d351aa5-629f-45a5-bc56-7eb56aeca42a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""cbadeef6-4afc-4f30-88dc-9674ca25ea7b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -396,6 +424,9 @@ public partial class @ModdedInputAssets: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+        // New action map
+        m_Newactionmap = asset.FindActionMap("New action map", throwIfNotFound: true);
+        m_Newactionmap_Newaction = m_Newactionmap.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -547,6 +578,52 @@ public partial class @ModdedInputAssets: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // New action map
+    private readonly InputActionMap m_Newactionmap;
+    private List<INewactionmapActions> m_NewactionmapActionsCallbackInterfaces = new List<INewactionmapActions>();
+    private readonly InputAction m_Newactionmap_Newaction;
+    public struct NewactionmapActions
+    {
+        private @ModdedInputAssets m_Wrapper;
+        public NewactionmapActions(@ModdedInputAssets wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Newactionmap_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(NewactionmapActions set) { return set.Get(); }
+        public void AddCallbacks(INewactionmapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+        }
+
+        private void UnregisterCallbacks(INewactionmapActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+        }
+
+        public void RemoveCallbacks(INewactionmapActions instance)
+        {
+            if (m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(INewactionmapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_NewactionmapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public NewactionmapActions @Newactionmap => new NewactionmapActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -592,5 +669,9 @@ public partial class @ModdedInputAssets: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+    }
+    public interface INewactionmapActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }
