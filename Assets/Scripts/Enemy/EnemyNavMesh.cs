@@ -157,7 +157,6 @@ public class EnemyNavMesh : MonoBehaviour
      private void Patrol() 
     {
         // Walks in specific path
-        if()
     
     }
 
