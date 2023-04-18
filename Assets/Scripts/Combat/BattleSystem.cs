@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
-public enum BattleState {START, PLAYERTURN, ENEMYTURN,WON,LOST }
+//public enum BattleState {START, PLAYERTURN, ENEMYTURN,WON,LOST }
 public class BattleSystem : MonoBehaviour
 {
-    public BattleState state;
-
     // Player 
     [SerializeField]
     private Transform player_postion;
@@ -19,27 +19,64 @@ public class BattleSystem : MonoBehaviour
     [SerializeField]
     private GameObject[] enemies;
 
+    private Queue turnorder;
+
     private void Awake()
     {
-       
+        GameManager.OnGameStateChanged += OnCombatStart;
+        GameManager.OnGameStateChanged += OnPlayerTurn;
+        GameManager.OnGameStateChanged += OnEnemyTurn;
+        GameManager.OnGameStateChanged += OnCombatEnd;
+
     }
 
-    void Start() 
+    private void OnDestroy()
     {
-        state = BattleState.START;
+        GameManager.OnGameStateChanged -= OnCombatStart;
+        GameManager.OnGameStateChanged -= OnPlayerTurn;
+        GameManager.OnGameStateChanged -= OnEnemyTurn;
+        GameManager.OnGameStateChanged -= OnCombatEnd;
+    }
 
-        player.transform.position = player_postion.position;
-
-        // Check that the arrays are the same length
-        if (enemies.Length != enemy_postion.Length)
+    private void OnCombatStart(GameState state)
+    {
+        if (state == GameState.ENTER_COMBAT) 
         {
-            Debug.LogError("Arrays must be the same length!");
-            return;
+            // Determine who attacked first
+
+            // Set up scene to have player and enmies placed 
+
+            // Disable Input to player 
+            
+            
+            // Switch to eithier player or enemy turn based query
+
+            
         }
+    }
 
-        for (int i = 0; i < enemies.Length; i++)
+    private void OnPlayerTurn(GameState state) 
+    {
+        if (state == GameState.PLAYER_TURN) 
         {
-            enemies[i].transform.position = enemy_postion[i].position;
+            // 
+            
+        }
+    }
+
+    private void OnEnemyTurn(GameState state) 
+    {
+        if (state == GameState.ENEMY_TURN) 
+        {
+            
+        }
+    }
+
+    private void OnCombatEnd(GameState state) 
+    {
+        if (state == GameState.LEAVING_COMBAT) 
+        {
+            
         }
     }
 }
