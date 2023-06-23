@@ -19,16 +19,17 @@ Handle errors and edge cases: The manager would need to handle errors and edge c
 */
 public class InteractableManager : MonoBehaviour
 {
-    private GameObject[] interatables;
+    private GameObject[] interactables;
 
     private void Start()
     {
 
-        if (interatables == null)
+        if (interactables == null)
         {
-            interatables = GameObject.FindGameObjectsWithTag("Interactable_Item");
+            interactables = GameObject.FindGameObjectsWithTag("Interactable_Item");
         }       
     }
 }
+
 
 

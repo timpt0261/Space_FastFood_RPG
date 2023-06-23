@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerToWorldManager : MonoBehaviour
 {
     // This script should change the Player respond to the WorldManger
-
     private PlayerInput input;
     private void Awake()
     {
@@ -23,15 +22,17 @@ public class PlayerToWorldManager : MonoBehaviour
     // The Following Script Disable the player's input when not exploring or in th lobby
     private void IsExploring(GameState state)
     {
-        if (state != GameState.EXPLORATION && state != GameState.LOBBY)
-        {
-            input.actions.Disable();
-        }
-        else 
+        bool canMove = state == GameState.EXPLORATION || state == GameState.LOBBY;
+
+        if (canMove)
         {
             input.actions.Enable();
         }
-        
+        else
+        {
+            input.actions.Disable();
+        }
+
     }
     
 }

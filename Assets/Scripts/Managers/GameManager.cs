@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState State;
-
     public static event Action<GameState> OnGameStateChanged;
+
+    private float gameStartDelay = 0.5f; // Delay in seconds before switching to Game.EXPLORATION
+    private float gameStartTimer;
 
     public void Awake()
     {
         Instance = this;
+        gameStartTimer = gameStartDelay;
     }
 
     public void Start()
@@ -21,10 +25,35 @@ public class GameManager : MonoBehaviour
         UpdateGameState(GameState.GAME_START);
     }
 
+    public void Update()
+    {
+        switch (State)
+        {
+            case GameState.GAME_START:
+                // Check if the timer has reached the delay
+                if (gameStartTimer <= 0f)
+                {
+                    // Switch to Game.EXPLORATION
+                    UpdateGameState(GameState.EXPLORATION);
+
+                    // Reset the timer
+                    gameStartTimer = gameStartDelay;
+                }
+                else
+                {
+                    // Update the timer
+                    gameStartTimer -= Time.fixedDeltaTime;
+                }
+                break;
+            default:
+                UpdateGameState(State);
+                break;
+        }
+    }
+
     public void UpdateGameState(GameState newGameState)
     {
         State = newGameState;
-
 
         switch (newGameState)
         {
@@ -54,7 +83,6 @@ public class GameManager : MonoBehaviour
         }
         OnGameStateChanged?.Invoke(newGameState);
     }
-
 }
 
 public enum GameState
@@ -67,8 +95,7 @@ public enum GameState
     SERVING, // Player has now playing mini-game
     GAME_OVER, // Should Play when the player has been killed
     GAME_START, // Should resume Gameplay from last save point
-
     LOBBY,        //Player is in the lobby
     MENU,         //Player is viewing in-game menu
-    OPTIONS       //player is adjusting game options*/
+    OPTIONS       //player is adjusting game options
 }

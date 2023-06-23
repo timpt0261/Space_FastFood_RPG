@@ -17,10 +17,6 @@ public class Chest : MonoBehaviour, IInteractable
 
         if (inventory == null) return false;
 
-        if (inventory.HasItem(keyname))
-        {
-              Debug.Log("Opening Chest");
-        }
         Debug.Log("Opening Chest");
         return true;
     }
