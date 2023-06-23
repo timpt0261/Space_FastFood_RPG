@@ -42,15 +42,20 @@ public class FeildOfView : MonoBehaviour
         {
             Transform target = targetsInView[i].transform;
             Vector3 dirToTarget = (target.position - this.transform.position).normalized;
-            if (Vector3.Angle(this.transform.forward, dirToTarget) < viewAngle/2) 
+            if (Vector3.Angle(this.transform.forward, dirToTarget) < viewAngle / 2)
             {
                 float dstTotarget = Vector3.Distance(this.transform.position, target.position);
 
-                if (!Physics.Raycast(this.transform.position, dirToTarget, dstTotarget, obstabcleMask)) 
+                if (!Physics.Raycast(this.transform.position, dirToTarget, dstTotarget, obstabcleMask))
                 {
                     visibleTarget.Add(target);
                 }
+                else
+                {
+                    visibleTarget.Remove(target);
+                }
             }
+          
         }
     }
 

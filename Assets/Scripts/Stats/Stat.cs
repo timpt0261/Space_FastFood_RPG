@@ -18,6 +18,10 @@ public class Stat{
         return finalValue;
     }
 
+    public void SetValue(int value) {
+        baseValue = value;
+    }
+
     public void AddModifier (int modifier)
     {
         if (modifier != 0)

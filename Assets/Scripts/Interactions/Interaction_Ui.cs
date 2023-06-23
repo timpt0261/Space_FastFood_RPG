@@ -9,6 +9,7 @@ public class Interaction_Ui : MonoBehaviour
     private Camera _main;
     [SerializeField] private GameObject _uiPanel;
     [SerializeField] private TextMeshProUGUI _promtText;
+
     private void Start()
     {
         _main = Camera.main;

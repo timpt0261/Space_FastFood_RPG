@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Scene menuScene;
+    private void Awake()
     {
-        
+        GameManager.OnGameStateChanged += OnMenu;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        GameManager.OnGameStateChanged -= OnMenu;
+    }
+
+    private void OnMenu(GameState state)
+    {
+        if (state == GameState.MENU)
+        {
+            // pull up meun ui
+        }
     }
 }
