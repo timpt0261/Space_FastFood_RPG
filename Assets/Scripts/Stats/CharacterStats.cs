@@ -4,12 +4,12 @@ using UnityEngine.UI;
 public class CharacterStats : MonoBehaviour
 {
     [SerializeField] private Slider health_slider;
-    [SerializeField] private Slider mana_slider;
+    [SerializeField] private Slider skill_slider;
 
     [SerializeField] private int maxHealth = 100; // dummy value
     [SerializeField] private int currentHealth { get; set; }
-    [SerializeField] private int maxMana = 100; // dummy value
-    [SerializeField] private int currentMana { get; set; }
+    [SerializeField] private int maxSkill = 100; // dummy value
+    [SerializeField] private int currentSkill { get; set; }
 
     [SerializeField] private Stat damage;
     [SerializeField] private Stat armor;
@@ -22,12 +22,12 @@ public class CharacterStats : MonoBehaviour
         health_slider.maxValue = maxHealth;
         health_slider.value = maxHealth;
 
-        // Set Mana Slider to maxMana
-        mana_slider.maxValue = maxMana;
-        mana_slider.value = maxMana;
+        // Set Skill Slider to maxSkill
+        skill_slider.maxValue = maxSkill;
+        skill_slider.value = maxSkill;
 
         currentHealth = maxHealth;
-        currentMana = maxMana;
+        currentSkill = maxSkill;
     }
 
     void Update()
