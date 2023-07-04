@@ -41,6 +41,12 @@ public class CharacterStats : MonoBehaviour
         {
             TakeDamage(20, 2);
         }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            currentSkill -= 10;
+            skill_slider.value -= 10;
+
+        }
     }
 
     public void TakeDamage (int damage, int type)

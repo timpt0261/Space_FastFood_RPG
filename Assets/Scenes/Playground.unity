@@ -3261,9 +3261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health_slider: {fileID: 812879262}
-  mana_slider: {fileID: 594163406}
+  skill_slider: {fileID: 594163406}
   maxHealth: 100
-  maxMana: 100
+  maxSkill: 100
   damage:
     baseValue: 0
   armor:
@@ -4143,9 +4143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health_slider: {fileID: 0}
-  mana_slider: {fileID: 0}
+  skill_slider: {fileID: 0}
   maxHealth: 100
-  maxMana: 100
+  maxSkill: 100
   damage:
     baseValue: 0
   armor:
